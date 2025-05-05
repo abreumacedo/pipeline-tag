@@ -1,0 +1,25 @@
+pipeline {
+    agent any
+
+    stages {
+        
+        stage('Deploy se for tag') {
+            when {
+                expression { return env.GIT_BRANCH?.startsWith("refs/tags/") }
+            }
+            steps {
+                echo "Ação super ultra mega hyper turbo blaster ."
+                sh 'echo  deploy de release...'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo "Pipeline finalizado com SUCESSO"
+        }
+        failure FALHOU
+            echo "Pipeline FALHOU."
+        }
+    }
+}
