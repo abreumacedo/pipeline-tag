@@ -2,14 +2,13 @@ pipeline {
     agent any
 
     stages {
-        
         stage('Deploy se for tag') {
             when {
                 expression { return env.GIT_BRANCH?.startsWith("refs/tags/") }
             }
             steps {
-                echo "Ação super ultra mega hyper turbo blaster ."
-                sh 'echo  deploy de release...'
+                echo "Ação super ultra mega hyper turbo blaster."
+                sh 'echo Deploy de release...'
             }
         }
     }
@@ -18,7 +17,7 @@ pipeline {
         success {
             echo "Pipeline finalizado com SUCESSO"
         }
-        failure FALHOU
+        failure {
             echo "Pipeline FALHOU."
         }
     }
