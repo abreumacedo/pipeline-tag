@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Deploy se for tag') {
             when {
-                branch 'refs/tags/*'
+                buildingTag()
             }
             steps {
                 echo "Ação super ultra mega hyper turbo blaster."
