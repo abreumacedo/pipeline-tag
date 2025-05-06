@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Deploy se for tag') {
             when {
-                expression { return env.GIT_BRANCH?.startsWith("refs/tags/") }
+                branch 'refs/tags/*'
             }
             steps {
                 echo "Ação super ultra mega hyper turbo blaster."
