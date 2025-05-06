@@ -3,9 +3,14 @@ pipeline {
 
     stages {
         stage('Deploy se for tag') {
+
+            // when {
+            //    branch 'refs/tags/*'
+            // }
             when {
-                branch 'refs/tags/*'
-            }
+                buildingTag()
+                }
+                
             steps {
                 echo "Deploy de tag"
                 sh 'echo Deploy da tag...'
